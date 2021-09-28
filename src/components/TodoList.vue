@@ -3,7 +3,7 @@
     <input type="checkbox" class="toggle-all" :checked="!allDone" @change="changeAllDone">
     <ul class="todo-list">
       <Todo
-          v-for="list in allList"
+          v-for="list in showList"
           :key="list.id"
           :list="list"
           @deleteOneTodo="deleteOneTodo"
@@ -20,7 +20,7 @@ import Todo from "@/components/Todo.vue";
   components: {Todo},
 })
 export default class TodoList extends Vue {
-  @Prop() allList: any
+  @Prop() showList: any
   @Prop() allDone: any
 
   @Emit("changeAllDone")
@@ -33,7 +33,3 @@ export default class TodoList extends Vue {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -27,7 +27,3 @@ export default class Todo extends Vue {
   }
 }
 </script>
-
-<style scoped>
-
-</style>
