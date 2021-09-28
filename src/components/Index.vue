@@ -41,8 +41,8 @@ export default class Index extends Vue {
   }
 
   /*删除一条数据*/
-  deleteOneTodo(id) {
-    console.log(this.allList.findIndex(item => item.id === id));
+  deleteOneTodo(id: number) {
+    this.allList.splice(this.allList.findIndex(item => item.id === id), 1)
   }
 
   /*计算属性*/

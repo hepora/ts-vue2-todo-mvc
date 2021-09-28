@@ -2,7 +2,12 @@
   <section class="main" style="">
     <input type="checkbox" class="toggle-all" :checked="!allDone" @change="changeAllDone">
     <ul class="todo-list">
-      <Todo v-for="list in allList" :key="list.id" :list="list"/>
+      <Todo
+          v-for="list in allList"
+          :key="list.id"
+          :list="list"
+          @deleteOneTodo="deleteOneTodo"
+      />
     </ul>
   </section>
 </template>
@@ -20,6 +25,11 @@ export default class TodoList extends Vue {
 
   @Emit("changeAllDone")
   changeAllDone() {
+  }
+
+  @Emit("deleteOneTodo")
+  deleteOneTodo(id: any) {
+    return id
   }
 }
 </script>
