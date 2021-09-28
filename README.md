@@ -1,4 +1,5 @@
 # vue2-ts-todomvc
+本项目用于练习TS在vue2中的使用
 
 ## Project setup
 ```
