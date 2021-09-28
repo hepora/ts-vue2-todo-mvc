@@ -1,6 +1,6 @@
 <template>
   <footer class="footer" style="">
-    <span class="todo-count"><strong>1</strong> items left</span>
+    <span class="todo-count"><strong>{{ allDone }}</strong> items left</span>
     <ul class="filters">
       <li><a href="" class="selected">all</a></li>
       <li><a href="" class="">active</a></li>
@@ -11,8 +11,13 @@
 </template>
 
 <script>
-export default {
+import {Vue, Component, Prop} from "vue-property-decorator";
+
+@Component({
   name: "Footer"
+})
+export default class Footer extends Vue {
+  @Prop() allDone
 }
 </script>
 

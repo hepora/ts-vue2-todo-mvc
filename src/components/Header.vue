@@ -6,8 +6,12 @@
 </template>
 
 <script>
-export default {
+import {Vue, Component, Prop} from "vue-property-decorator";
+
+@Component({
   name: "Header"
+})
+export default class Header extends Vue {
 }
 </script>
 
