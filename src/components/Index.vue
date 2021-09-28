@@ -40,12 +40,16 @@ export default class Index extends Vue {
   /*方法*/
 
   addOneTodo(content: string) {
-    let id = this.allList[this.allList.length - 1].id
-    if (id) {
+    let id: number
+    /*如果长度大于0，证明里面有数据*/
+    if (this.allList.length) {
+      id = this.allList[this.allList.length - 1].id
       id++
     } else {
+      /*否则的话，id从1开始*/
       id = 1
     }
+
     this.allList.push(
         {id, content, done: false}
     )
