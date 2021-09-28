@@ -1,13 +1,18 @@
 <template>
   <section class="todoapp">
-    <Header/>
+    <Header @addOneTodo="addOneTodo"/>
     <TodoList
         :showList="showList"
         :allDone="allDone"
         @changeAllDone="changeAllDone"
         @deleteOneTodo="deleteOneTodo"
     />
-    <Footer :allDone="allDone" :showWhat="showWhat" @changeShowList="changeShowList"/>
+    <Footer
+        :allDone="allDone"
+        :showWhat="showWhat"
+        @changeShowList="changeShowList"
+        @cleanAllDone="cleanAllDone"
+    />
   </section>
 </template>
 
@@ -34,6 +39,18 @@ export default class Index extends Vue {
 
   /*方法*/
 
+  addOneTodo(content: string) {
+    let id = this.allList[this.allList.length - 1].id
+    if (id) {
+      id++
+    } else {
+      id = 1
+    }
+    this.allList.push(
+        {id, content, done: false}
+    )
+  }
+
   /*改变全部状态*/
   changeAllDone() {
     if (this.allDone) {
@@ -51,6 +68,11 @@ export default class Index extends Vue {
   /*改变显示列表*/
   changeShowList(what: string) {
     this.showWhat = what
+  }
+
+  /*删除所有已完成的*/
+  cleanAllDone() {
+    this.allList = this.allList.filter(item => !item.done)
   }
 
   /*计算属性*/

@@ -4,9 +4,9 @@
     <ul class="filters">
       <li><a href="" @click.prevent="changeShowList('all')" :class="showWhat==='all'?'selected':''">all</a></li>
       <li><a href="" @click.prevent="changeShowList('active')" :class="showWhat==='active'?'selected':''">active</a></li>
-      <li><a href="" @click.prevent="changeShowList('done')" :class="showWhat==='completed'?'selected':''">completed</a></li>
+      <li><a href="" @click.prevent="changeShowList('done')" :class="showWhat==='done'?'selected':''">completed</a></li>
     </ul>
-    <button class="clear-completed">clear completed</button>
+    <button class="clear-completed" @click="cleanAllDone">clear completed</button>
   </footer>
 </template>
 
@@ -23,6 +23,10 @@ export default class Footer extends Vue {
   @Emit("changeShowList")
   changeShowList(what) {
     return what
+  }
+
+  @Emit("cleanAllDone")
+  cleanAllDone() {
   }
 }
 </script>
